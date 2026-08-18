@@ -1,0 +1,10 @@
+1;Hvad står MVVM for?;Model-View-Controller,Model-View-ViewModel,Manager-View-ViewModel,Model-Viewer-Model;1 
+2;Hvad er formålet med INotifyPropertyChanged?;Gemme data til fil,Opdatere UI ved ændring af properties,Oprette nye objekter,Styre navigation;1 
+3;Hvad kompileres et Class Library til?;En .exe fil,En .dll fil,En .txt fil,En .xml fil;1 
+4;Hvad bruges RelayCommand til i MVVM?;Binde knapper til metoder i ViewModel,Oprette en database-forbindelse,Parse JSON-data,Styre filhåndtering;0
+5;Hvad er Repository Pattern?;Et UI-designmønster,Et abstraktionslag mellem logik og datastorage,En måde at skrive XAML,Et testframework;1 
+6;Hvad er DataContext i WPF?;Den aktuelle databaseforbindelse,Det objekt et View binder sine properties til,En fil der indeholder testdata,Et XAML-element;1 
+7;Hvad er forskellen på '{Binding}' og '{x:Static}'?;Ingen forskel,Binding binder til DataContext, x:Static til statiske værdier,Binding er til lister, x:Static til tekst,x:Static er hurtigere;1 
+8;Hvad gør 'using' i C#?;Importerer et namespace,Frigiver ressourcer automatisk (IDisposable),Begge dele,Ingen af delene;2 
+9;Hvad er Dependency Inversion Principle?;Klasser afhænger af konkrete implementeringer,Klasser afhænger af abstraktioner (interfaces),Man må ikke bruge arv,Interfaces må ikke have metoder;1 
+10;Hvilken WPF-property bruges til two-way binding?;Mode=OneWay,Mode=TwoWay,Mode=OneTime,Mode=Static;1

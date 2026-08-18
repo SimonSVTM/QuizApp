@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../QuizApp.Core/QuizApp.Core.csproj" />
+  <Project Path="../QuizApp.Wpf/QuizApp.Wpf.csproj" />
+  <Project Path="QuizApp.ConsoleApp.csproj" />
+</Solution>

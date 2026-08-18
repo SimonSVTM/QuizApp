@@ -1,0 +1,52 @@
+﻿<Window x:Class="QuizApp.Wpf.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quiz App" Height="450" Width="600"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <!-- Trin 1: Converter til at vise/skjule paneler -->
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <!-- Hovedgrænseflade for quizzen -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Status og Score Header -->
+            <DockPanel Grid.Row="0" Margin="0,0,0,15">
+                <TextBlock Text="{Binding StatusMessage}" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Left"/>
+                <TextBlock Text="{Binding CurrentScore, StringFormat='Point: {0}'}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+            </DockPanel>
+
+            <!-- Progress Bar -->
+            <ProgressBar Grid.Row="1" Value="{Binding ProgressValue}" Minimum="0" Maximum="100" Height="12" Margin="0,0,0,20"/>
+
+            <!-- Aktuelt Spørgsmål -->
+            <TextBlock Grid.Row="2" Text="{Binding CurrentQuestion.QuestionText}" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Margin="0,0,0,20"/>
+
+            <!-- Svarmuligheder (4 knapper knyttet til AnswerCommand) -->
+            <StackPanel Grid.Row="3" VerticalAlignment="Top">
+                <Button Content="{Binding CurrentQuestion.Options[0]}" Command="{Binding AnswerCommand}" CommandParameter="0" Margin="0,5" Padding="10"/>
+                <Button Content="{Binding CurrentQuestion.Options[1]}" Command="{Binding AnswerCommand}" CommandParameter="1" Margin="0,5" Padding="10"/>
+                <Button Content="{Binding CurrentQuestion.Options[2]}" Command="{Binding AnswerCommand}" CommandParameter="2" Margin="0,5" Padding="10"/>
+                <Button Content="{Binding CurrentQuestion.Options[3]}" Command="{Binding AnswerCommand}" CommandParameter="3" Margin="0,5" Padding="10"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Trin 2: Slutskærm overlay (skjult indtil IsQuizFinished er true) -->
+        <Border Background="White" Visibility="{Binding IsQuizFinished, Converter={StaticResource BoolToVis}}">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Quiz slut!" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding StatusMessage}" FontSize="16" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding CurrentScore, StringFormat='Endelig point: {0}'}" FontSize="18" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
