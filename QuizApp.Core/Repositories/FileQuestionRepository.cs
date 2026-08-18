@@ -19,7 +19,7 @@ namespace QuizApp.Core.Repositories {
                 string[] lines = File.ReadAllLines(_filePath); 
                 List<Question> result = new List<Question>(); 
                 foreach (string line in lines) { 
-                    Debug.WriteLine(line);
+                   
                     if (!string.IsNullOrWhiteSpace(line)) result.Add(Question.FromFileString(line)); 
                 } 
                 return result; 
